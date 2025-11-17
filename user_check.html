@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Verified Users</title></head>
+<body>
+<h2>Verified Users on Blockchain</h2>
+{% for block in chain %}
+  <p><b>{{block.index}}.</b> {{block.data}}</p>
+{% endfor %}
+<a href="/">Home</a>
+</body>
+</html>

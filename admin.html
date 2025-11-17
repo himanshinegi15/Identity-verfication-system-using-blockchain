@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Verification Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px auto;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        button {
+            padding: 6px 12px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #219150;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    {% if pending %}
+        {% for name, data in pending.items() %}
+        <div class="card">
+            <h3>{{ name }}</h3>
+            <p><strong>Aadhaar:</strong> {{ data.aadhaar }}</p>
+            <p><a href="{{ url_for('uploads', filename=data.file.split('/')[-1]) }}" target="_blank">📄 View Document</a></p>
+            <a href="/verify/{{ name }}"><button>✅ Verify</button></a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No pending documents.</p>
+    {% endif %}
+</body>
+</html>
