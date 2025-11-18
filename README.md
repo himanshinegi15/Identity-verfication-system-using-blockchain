@@ -1,1 +1,1 @@
-# abcc
+This project is a blockchain based identity verification system. In this project we have made a system where the users can upload their original documents and the admin will verify whether they are fake or real and hence verify or not accordingly and if verified the information will be added in the get_user page. This is a group project of 4 people.
